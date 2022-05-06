@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:57 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/06 17:56:50 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/06 19:08:24 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ int	ft_draw(t_fractal *fractal)
 		{
 			if (fractal->fractal.type == 1)
 				depth = ft_mandelbrot_constructor(fractal);
-			fractal->fractal.w++;
+			ft_put_pixel(fractal, depth);
+			fractal->fractal.w += 1;
 		}
-		fractal->fractal.h++;
+		fractal->fractal.h += 1;
+	}
 		mlx_put_image_to_window(fractal->mlx.mlx, fractal->mlx.win, \
 				fractal->mlx.img, 0, 0);
-	}
-	return (0);
+	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:38:15 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/06 17:47:34 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/06 19:03:36 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@ void	selector(t_fractal *fractal, char **argv);
 int		key(int hook, t_fractal *fractal);
 int		ft_draw(t_fractal *f);
 int		ft_mandelbrot_constructor(t_fractal *fractal);
+void	ft_put_pixel(t_fractal *fractal, int depth);
 
 #endif

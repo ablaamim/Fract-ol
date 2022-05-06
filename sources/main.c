@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:39:04 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/06 17:57:47 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/06 19:19:14 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,18 @@ void	ft_initialize(t_fractal *fractal)
 {
 	fractal->fractal.x_real = -2.0;
 	fractal->fractal.y_im = -1.30;
-	if (fractal->fractal.type == 2)
+	if (fractal->fractal.type == 1)
 	{
 		fractal->fractal.x_real = -2.5;
 		fractal->fractal.y_im = -1.30;
 	}
+	fractal->fractal.iteration = 50;
 	fractal->fractal.scale = 300.00;
 	fractal->color.red = 0x42;
 	fractal->color.green = 0x32;
 	fractal->color.blue = 0x22;
-	fractal->fractal.h = 0;
-	fractal->fractal.w = 0;
+	fractal->fractal.h = 0x0;
+	fractal->fractal.w = 0x0;
 }
 
 int	main(int argc, char **argv)
