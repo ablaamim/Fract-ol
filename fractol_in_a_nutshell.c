@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 11:22:04 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/06 17:43:22 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/06 17:58:27 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ typedef struct s_fractal
 void	ft_help(void)
 {
 	printf("Argument 1 : Choose a fractal : \n");
-	printf("#######  MANDELBROT.....1 ######\n");
-	printf("#######  JULIA SET......2 ######\n");
+	printf("#######  maandelbrot ######\n");
+	printf("#######     julia    ######\n");
 }
 
 int	ft_strcmp(char *s1, char *s2)

@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:39:04 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/06 17:51:40 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/06 17:57:47 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	selector(t_fractal *fractal, char **argv)
 void	options(void)
 {
 	printf("Arg 1 : Select a fractal ###: \n");
-	printf("##### Mandelbrot.....1  ##### \n");
-	printf("#######  Julia.....2  ####### \n");
+	printf("######### mandelbrot ######## \n");
+	printf("#########   julia  ########## \n");
 }
 
 void	ft_initialize(t_fractal *fractal)
@@ -60,8 +60,8 @@ int	main(int argc, char **argv)
 		fract.mlx.mlx = mlx_init();
 		fract.mlx.win = mlx_new_window(fract.mlx.mlx, WIDTH, HEIGHT, MSG);
 		fract.mlx.img = mlx_new_image(fract.mlx.mlx, WIDTH, HEIGHT);
-		fract.mlx.addr = mlx_get_data_addr(fract.mlx.img, 
-				&fract.mlx.bits_per_pixel, &fract.mlx.line_length, 
+		fract.mlx.addr = mlx_get_data_addr(fract.mlx.img,
+				&fract.mlx.bits_per_pixel, &fract.mlx.line_length,
 				&fract.mlx.endian);
 		ft_initialize(&fract);
 		ft_draw(&fract);
