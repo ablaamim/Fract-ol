@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:39:04 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/06 10:23:45 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/06 17:51:40 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	selector(t_fractal *fractal, char **argv)
 {
-	if (argv[1][0] == '1' && argv[1][1] == '\0')
+	if (!ft_strcmp(argv[1], "mandelbrot"))
 		fractal->fractal.type = 1;
-	else if (argv[1][0] == '2' && argv[1][1] == '\0')
+	else if (!ft_strcmp(argv[1], "julia"))
 		fractal->fractal.type = 2;
 	else
 	{
-		printf("\nERROR : Invalid argument \n\n");
+		printf("ERROR : Invalid argument\n");
 		options();
 		exit (EXIT_SUCCESS);
 	}
@@ -29,8 +29,8 @@ void	selector(t_fractal *fractal, char **argv)
 void	options(void)
 {
 	printf("Arg 1 : Select a fractal ###: \n");
-	printf("######## Julia set ######## 1 \n");
-	printf("#######  Mandelbrot ####### 2 \n");
+	printf("##### Mandelbrot.....1  ##### \n");
+	printf("#######  Julia.....2  ####### \n");
 }
 
 void	ft_initialize(t_fractal *fractal)

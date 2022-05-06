@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.c                                            :+:      :+:    :+:   */
+/*   libft_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 11:29:05 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/06 17:48:30 by ablaamim         ###   ########.fr       */
+/*   Created: 2022/05/06 17:45:33 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/05/06 17:47:07 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int	key(int hook, t_fractal *fractal)
+int	ft_strcmp(char *s1, char *s2)
 {
-	if (hook == ESC)
-		exit(EXIT_SUCCESS);
+	int	i;
 
-	fractal->fractal.h = 0;
-	fractal->fractal.w = 0;
-	return (0);
+	i = 0x0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }
-
-/*int	mouse_hook(int hook, int x, int y, t_fractal *fractal)
-{
-	return (0);
-}
-*/

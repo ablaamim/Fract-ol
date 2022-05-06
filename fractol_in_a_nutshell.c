@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 11:22:04 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/06 11:42:59 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/06 17:43:22 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,21 @@ void	ft_help(void)
 	printf("#######  JULIA SET......2 ######\n");
 }
 
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0x0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+}
+
 void	ft_selector(t_fractal *fractal, char **argv)
 {
-	if (!strcmp(argv[1], "mandelbrot"))
+	if (!ft_strcmp(argv[1], "mandelbrot"))
 		fractal->fractal.type = 1;
-	else if (!strcmp(argv[1], "julia"))
+	else if (!ft_strcmp(argv[1], "julia"))
 		fractal->fractal.type = 2;
 	else
 	{

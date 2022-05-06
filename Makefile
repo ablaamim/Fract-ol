@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/02 12:37:59 by ablaamim          #+#    #+#              #
-#    Updated: 2022/05/06 10:25:00 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/05/06 17:49:12 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ HEADER = ./includes/fractol.h
 
 SRC = ./sources/main.c \
 	  ./sources/draw.c \
-	  ./sources/hooks.c
+	  ./sources/hooks.c \
+	  ./sources/ft_mandelbrot_constructor.c \
+	  ./sources/libft_utils.c
 
 OBJ = $(patsubst %.c,%.o,$(SRC))
 

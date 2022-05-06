@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:38:15 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/06 10:39:16 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/06 17:47:34 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_fractal
 }	t_fractal;
 
 int		main(int argc, char **argv);
+int		ft_strcmp(char *s1, char *s2);
 void	options(void);
 void	ft_initialize(t_fractal *fractal);
 void	selector(t_fractal *fractal, char **argv);
