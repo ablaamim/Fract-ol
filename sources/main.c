@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:39:04 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/06 19:19:14 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/06 19:32:37 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	ft_initialize(t_fractal *fractal)
 		fractal->fractal.x_real = -2.5;
 		fractal->fractal.y_im = -1.30;
 	}
+	fractal->fractal.c_real = 0x0;
+	fractal->fractal.c_im = 0x0;
 	fractal->fractal.iteration = 50;
 	fractal->fractal.scale = 300.00;
 	fractal->color.red = 0x42;
@@ -66,7 +68,7 @@ int	main(int argc, char **argv)
 				&fract.mlx.endian);
 		ft_initialize(&fract);
 		ft_draw(&fract);
-		mlx_key_hook(fract.mlx.win, key, &fract);
+		//mlx_key_hook(fract.mlx.win, key, &fract);
 		//mlx_mouse_hook(fract.mlx.win, mouse, &fract);
 		mlx_loop(fract.mlx.mlx);
 	}
