@@ -1,0 +1,78 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/02 12:39:04 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/05/06 10:23:45 by ablaamim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/fractol.h"
+
+void	selector(t_fractal *fractal, char **argv)
+{
+	if (argv[1][0] == '1' && argv[1][1] == '\0')
+		fractal->fractal.type = 1;
+	else if (argv[1][0] == '2' && argv[1][1] == '\0')
+		fractal->fractal.type = 2;
+	else
+	{
+		printf("\nERROR : Invalid argument \n\n");
+		options();
+		exit (EXIT_SUCCESS);
+	}
+}
+
+void	options(void)
+{
+	printf("Arg 1 : Select a fractal ###: \n");
+	printf("######## Julia set ######## 1 \n");
+	printf("#######  Mandelbrot ####### 2 \n");
+}
+
+void	ft_initialize(t_fractal *fractal)
+{
+	fractal->fractal.x_real = -2.0;
+	fractal->fractal.y_im = -1.30;
+	if (fractal->fractal.type == 2)
+	{
+		fractal->fractal.x_real = -2.5;
+		fractal->fractal.y_im = -1.30;
+	}
+	fractal->fractal.scale = 300.00;
+	fractal->color.red = 0x42;
+	fractal->color.green = 0x32;
+	fractal->color.blue = 0x22;
+	fractal->fractal.h = 0;
+	fractal->fractal.w = 0;
+}
+
+int	main(int argc, char **argv)
+{
+	t_fractal	fract;
+
+	if (argc >= 2)
+	{
+		selector(&fract, argv);
+		fract.mlx.mlx = mlx_init();
+		fract.mlx.win = mlx_new_window(fract.mlx.mlx, WIDTH, HEIGHT, MSG);
+		fract.mlx.img = mlx_new_image(fract.mlx.mlx, WIDTH, HEIGHT);
+		fract.mlx.addr = mlx_get_data_addr(fract.mlx.img, 
+				&fract.mlx.bits_per_pixel, &fract.mlx.line_length, 
+				&fract.mlx.endian);
+		ft_initialize(&fract);
+		ft_draw(&fract);
+		mlx_key_hook(fract.mlx.win, key, &fract);
+		//mlx_mouse_hook(fract.mlx.win, mouse, &fract);
+		mlx_loop(fract.mlx.mlx);
+	}
+	else
+	{
+		printf("\nERROR : Missing argument\n\n");
+		options();
+	}
+	return (EXIT_SUCCESS);
+}
