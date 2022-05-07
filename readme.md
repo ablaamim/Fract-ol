@@ -16,9 +16,9 @@
 <h2>
 	Final score
 </h2>
-<img src=https://github.com/ablaamim/Fract-ol/SRC_IMG/blob/master/score_125.png />
+<img src=https://github.com/ablaamim/Fract-ol/blob/master/SRC_IMG/score_125.png />
 <h4>Completed + Bonus</h4>
-<img src=https://github.com/ablaamim/Fract-ol/SRC_IMG/lob/master/fractolm.png />
+<img src=https://github.com/ablaamim/Fract-ol/blob/master/SRC_IMG/fractolm.png />
 </div>
 
 ---
