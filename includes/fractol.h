@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:38:15 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/06 19:03:36 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/07 14:26:58 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <stdio.h>
 # include <mlx.h>
 
-# define HEIGHT 1280
-# define WIDTH 720
+# define HEIGHT 720
+# define WIDTH 1280
 # define MSG "Welcome to fractol project !"
 
 # define ESC 53
@@ -54,7 +54,7 @@ typedef struct s_infos
 	double	c_im;
 }	t_infos;
 
-typedef struct s_minilib_x
+typedef struct s_mlx
 {
 	void	*mlx;
 	void	*img;
@@ -64,13 +64,13 @@ typedef struct s_minilib_x
 	int		endian;
 	void	*win;
 	int		color;
-}	t_minilib_x;
+}	t_mlx;
 
 typedef struct s_fractal
 {
 	t_infos		fractal;
 	t_rgb		color;
-	t_minilib_x	mlx;
+	t_mlx		mlx;
 }	t_fractal;
 
 int		main(int argc, char **argv);
