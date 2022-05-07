@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:38:15 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/07 14:26:58 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/07 17:20:50 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 # include <stdio.h>
 # include <mlx.h>
 
+# define SCALE_LIMIT 500000
+# define SCALE_PERC 1.3
+# define SCALE_ITER 3
+
 # define HEIGHT 720
 # define WIDTH 1280
 # define MSG "Welcome to fractol project !"
@@ -30,8 +34,8 @@
 # define LEFT 123
 # define RIGHT 124
 
-# define UP_SCROLL 0x04
-# define DOWN_SCROLL 0x05
+# define SCROLL_UP 0x04
+# define SCROLL_DOWN 0x05
 
 typedef struct s_rgb
 {
@@ -75,12 +79,16 @@ typedef struct s_fractal
 
 int		main(int argc, char **argv);
 int		ft_strcmp(char *s1, char *s2);
-void	options(void);
+void	options_menu(void);
 void	ft_initialize(t_fractal *fractal);
 void	selector(t_fractal *fractal, char **argv);
-int		key(int hook, t_fractal *fractal);
+int		key_hook(int hook, t_fractal *fractal);
 int		ft_draw(t_fractal *f);
 int		ft_mandelbrot_constructor(t_fractal *fractal);
 void	ft_put_pixel(t_fractal *fractal, int depth);
+void	ft_rgb_randomizer(t_fractal *fractal);
+int		mouse_hook(int hook, int x, int y, t_fractal *fractal);
+void	ft_zoom_in(int x, int y, t_fractal *fractal);
+void	ft_zoom_out(int x, int y, t_fractal *fractal);
 
 #endif

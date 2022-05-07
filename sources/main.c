@@ -6,31 +6,66 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:39:04 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/06 19:32:37 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/07 18:43:53 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
+void	man_fractol(void)
+{
+	printf("-----------------------------------------------------------\n");
+	printf("             MAN fractol (42 project) : \n");
+	printf("-----------------------------------------------------------\n\n");
+	printf("SYNOPSYS :\n");
+	printf("     ./fractol [-man/-julia/-mandelbrot]\n");
+	printf("DESCRIPTION : \n");
+	printf("     Render a choosen fractal using mlx library.\n\n");
+	printf("-----------------------------------------------------------\n");
+	printf ("                 COMPILATION :\n");
+	printf("-----------------------------------------------------------\n\n");
+	printf("Make : compile all source files and generate the executable.\n");
+	printf("Make fclean : clean all objects and the executable file.\n");
+	printf("Make clean : clean only executable.\n\n");
+	printf("-----------------------------------------------------------\n");
+	printf("             OPTIONS : ./fractol [option]\n");
+	printf("-----------------------------------------------------------\n\n");
+	printf("-man : display man.\n");
+	printf("-mandelbrot : render mandelbrot set.\n");
+	printf("-julia : render julia set.\n\n");
+	printf("-----------------------------------------------------------\n");
+}
+
 void	selector(t_fractal *fractal, char **argv)
 {
-	if (!ft_strcmp(argv[1], "mandelbrot"))
+	if (!ft_strcmp(argv[1], "-man"))
+	{
+		man_fractol();
+		exit (EXIT_SUCCESS);
+	}
+	else if (!ft_strcmp(argv[1], "-mandelbrot"))
 		fractal->fractal.type = 1;
-	else if (!ft_strcmp(argv[1], "julia"))
+	else if (!ft_strcmp(argv[1], "-julia"))
 		fractal->fractal.type = 2;
 	else
 	{
-		printf("ERROR : Invalid argument\n");
-		options();
+		printf("\nERROR : Invalid argument\n\n");
+		options_menu();
 		exit (EXIT_SUCCESS);
 	}
 }
 
-void	options(void)
+void	options_menu(void)
 {
-	printf("Arg 1 : Select a fractal ###: \n");
-	printf("######### mandelbrot ######## \n");
-	printf("#########   julia  ########## \n");
+	printf("###########     HELP MENU     #############\n");
+	printf("#                                         #\n");
+	printf("# Please enter an option from bellow :    #\n");
+	printf("#                                         #\n");
+	printf("# Option 0 : -man                         #\n");
+	printf("# Option 1 : -mandelbrot                  #\n");
+	printf("# Option 2 : -julia                       #\n");
+	printf("#                                         #\n");
+	printf("###########################################\n");
 }
 
 void	ft_initialize(t_fractal *fractal)
@@ -68,14 +103,15 @@ int	main(int argc, char **argv)
 				&fract.mlx.endian);
 		ft_initialize(&fract);
 		ft_draw(&fract);
-		//mlx_key_hook(fract.mlx.win, key, &fract);
-		//mlx_mouse_hook(fract.mlx.win, mouse, &fract);
+		mlx_key_hook(fract.mlx.win, key_hook, &fract);
+		mlx_mouse_hook(fract.mlx.win, mouse_hook, &fract);
 		mlx_loop(fract.mlx.mlx);
 	}
 	else
 	{
 		printf("\nERROR : Missing argument\n\n");
-		options();
+		options_menu();
+		printf("\n");
 	}
 	return (EXIT_SUCCESS);
 }
