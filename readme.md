@@ -126,6 +126,6 @@ But what is the complex plane and where can I get it?
 
 To get a complex plane, you just need to carry out a small “rebranding” of the familiar plane: replace the axis xwith the axis re(real part), a ywith im(imaginary part).
 
-Any complex number can now be marked on the resulting plane, because it also consists of two components ( re, ), just like the coordinates ( , ) imalready familiar to us :x y
+Any complex number can now be marked on the resulting plane, because it also consists of two components ( re, ), just like the coordinates ( , ) already familiar to us :x y
 
 ---

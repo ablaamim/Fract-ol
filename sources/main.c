@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:39:04 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/09 14:12:24 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/09 20:17:54 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,31 @@ void	ft_initialize(t_fractal *fractal)
 	fractal->fractal.w = 0x0;
 }
 
+void	_afplay(void)
+{
+	char *afplay[3];
+	int pid;
+
+	afplay[0] = "/usr/bin/afplay";
+	afplay[1] = "/Users/ablaamim/Desktop/FRACTALS/sources/.sound/fourpointfour-110019.mp3";
+	afplay[2] = 0;
+
+
+	if ((pid = fork()) == 0)
+	{
+		execve(afplay[0], afplay, 0);
+	}
+	else
+		;
+	//system("afplay /Users/ablaamim/Desktop/FRACTALS/sources/.sound/fourpointfour-110019.mp3");
+}
+
 int	main(int argc, char **argv)
 {
 	t_fractal	fract;
 
+	_afplay();
+	//trippy_sound(&fract);
 	if (argc >= 2)
 	{
 		selector(&fract, argv);
@@ -113,5 +134,6 @@ int	main(int argc, char **argv)
 		options_menu();
 		printf("\n");
 	}
+
 	return (EXIT_SUCCESS);
 }

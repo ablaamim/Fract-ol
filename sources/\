@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:29:05 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/09 20:59:21 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/09 20:56:19 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 void	ft_quit(int pid)
 {
-	kill(pid, SIGPIPE);
+	int sig = SIGUSR1;
+
+	if (sig)
+	{
+		if (kill(pid, SIGSEGV) < 0)
+			printf("dewef");
+	}
 }
 
 int	key_hook(int hook, t_fractal *fractal)
