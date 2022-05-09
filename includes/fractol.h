@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:38:15 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/07 17:20:50 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/07 19:16:31 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdio.h>
 # include <mlx.h>
 
-# define SCALE_LIMIT 500000
+# define SCALE_LIMIT 800000
 # define SCALE_PERC 1.3
 # define SCALE_ITER 3
 

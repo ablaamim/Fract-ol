@@ -56,3 +56,76 @@ referenced online).<br>
 
 ---
 
+### What is a "fractal ?"
+
+---
+
+Fractal is a word coined in 1975 by Benoit Mandelbrot. It is derived from the Latin "fractus", which means crushed, broken, broken.
+
+In the language of mathematics, a fractal is a set with the property of self-similarity. In other words, each element of the set is an exact or approximate copy of the whole.
+
+It seems that this is a purely mathematical concept, but in reality we are faced with fractals every day. Trees, mountains, plants and even the circulatory system have a fractal structure.
+
+---
+
+### Fractals in nature :
+
+---
+
+As is known from the course of geography, each of the countries has its own area of ​​​​territory and the length of the border. If a country is washed by any sea or ocean, then it also has a maritime border. But how do you determine the length of these borders?
+
+In 1967, Benoit Mandelbrot asked himself the following question: "What is the length of the coastline of Great Britain?"
+
+It turned out that it is impossible to correctly answer this seemingly simple question.
+
+The length of the coastline can only be measured approximately. As the scale decreases, more and more small capes and coves need to be measured. And since there is no limit to zooming out, there is no limit to the length of the coastline. That is, it is endless.
+
+The English mathematician Lewis Fry Richardson faced the same paradox in 1951 when he noticed that Portugal had defined its land border with Spain at 987 km, while Spain, in turn, at 1214 km.
+
+The solution to this problem is possible by setting the minimum segment. For example, if the length of the coastline is measured in kilometers, then small bends that are less than one kilometer long are not taken into account.
+
+---
+
+### Complex numbers :
+
+---
+
+Once mathematicians were faced with equations that could not be solved using ordinary numbers:
+
+The equation
+
+To fix the problem and still find the root of the equation, they came up with a number i, which they called the imaginary unit.
+
+They also declared that this number is equal to the square root of minus one:
+
+imaginary unit
+
+The square of this number, respectively, is equal to minus one:
+
+Imaginary unit squared
+
+Thanks to the imaginary unit, the solution of such equations became possible:
+
+Equation solution
+
+This is how complex numbers appeared, in which, in addition to the normal, understandable part, there was also an incomprehensible one, where there is i:
+
+Complex number
+
+It turns out that a complex number zconsists of two parts: ait is called the real part (real part), and b- the imaginary part (imaginary part) of the complex number.
+
+---
+
+### Complex plane :
+
+---
+
+We have already worked with the plane. Points were marked on it using a pair of numbers xand y.
+
+But what is the complex plane and where can I get it?
+
+To get a complex plane, you just need to carry out a small “rebranding” of the familiar plane: replace the axis xwith the axis re(real part), a ywith im(imaginary part).
+
+Any complex number can now be marked on the resulting plane, because it also consists of two components ( re, ), just like the coordinates ( , ) imalready familiar to us :x y
+
+---

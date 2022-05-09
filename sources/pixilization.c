@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 18:44:29 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/07 14:37:26 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/07 19:11:26 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	ft_rgb_randomizer(t_fractal *fractal)
 {
 	fractal->color.red += 10;
-	fractal->color.green += 30;
-	fractal->color.blue += 20;
+	fractal->color.green += 40;
+	fractal->color.blue += 15;
 }
 
 void	ft_put_pixel(t_fractal *fractal, int depth)
