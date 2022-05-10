@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:29:05 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/09 20:59:21 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/10 15:45:59 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	key_hook(int hook, t_fractal *fractal)
 	else if (hook == SPACE)
 		ft_rgb_randomizer(fractal);
 	else if (hook == UP)
-		fractal->fractal.y_im += 10 / fractal->fractal.scale;
+		fractal->fractal.z.im -= 10 / fractal->fractal.scale;
 	else if (hook == DOWN)
-		fractal->fractal.y_im -= 10 / fractal->fractal.scale;
+		fractal->fractal.z.im += 10 / fractal->fractal.scale;
 	else if (hook == LEFT)
-		fractal->fractal.x_real += 10 / fractal->fractal.scale;
+		fractal->fractal.c.re -= 10 / fractal->fractal.scale;
 	else if (hook == RIGHT)
-		fractal->fractal.x_real -= 10 / fractal->fractal.scale;
+		fractal->fractal.c.re += 10 / fractal->fractal.scale;
 	fractal->fractal.h = 0;
 	fractal->fractal.w = 0;
 	ft_draw(fractal);
@@ -49,12 +49,12 @@ void	ft_zoom_in(int x, int y, t_fractal *fractal)
 	else
 	{
 		scalar = fractal->fractal.scale * SCALE_PERC;
-		fractal->fractal.x_real = ((double) x / fractal->fractal.scale \
-				+ fractal->fractal.x_real - (scalar / 2));
-		fractal->fractal.x_real += (scalar / 2) - ((double)x / scalar);
-		fractal->fractal.y_im = ((double) y / fractal->fractal.scale + \
-				fractal->fractal.y_im) - (scalar / 2);
-		fractal->fractal.y_im += (scalar / 2) - ((double) y / scalar);
+		fractal->fractal.z.re = ((double) x / fractal->fractal.scale \
+				+ fractal->fractal.z.re - (scalar / 2));
+		fractal->fractal.z.re += (scalar / 2) - ((double)x / scalar);
+		fractal->fractal.z.im = ((double) y / fractal->fractal.scale + \
+				fractal->fractal.z.im) - (scalar / 2);
+		fractal->fractal.z.im += (scalar / 2) - ((double) y / scalar);
 		fractal->fractal.scale *= SCALE_PERC;
 		fractal->fractal.iteration += SCALE_ITER;
 		ft_rgb_randomizer(fractal);
@@ -66,12 +66,12 @@ void	ft_zoom_out(int x, int y, t_fractal *fractal)
 	double	scalar;
 
 	scalar = fractal->fractal.scale / SCALE_PERC;
-	fractal->fractal.x_real = ((double) x / fractal->fractal.scale + \
-			fractal->fractal.x_real) - (scalar / 2);
-	fractal->fractal.x_real += (scalar / 2) - ((double) x / scalar);
-	fractal->fractal.y_im = ((double) y / fractal->fractal.scale + \
-			fractal->fractal.y_im) - (scalar / 2);
-	fractal->fractal.y_im += (scalar / 2) - ((double)y / scalar);
+	fractal->fractal.z.re = ((double) x / fractal->fractal.scale + \
+			fractal->fractal.z.re) - (scalar / 2);
+	fractal->fractal.z.re += (scalar / 2) - ((double) x / scalar);
+	fractal->fractal.z.im = ((double) y / fractal->fractal.scale + \
+			fractal->fractal.z.im) - (scalar / 2);
+	fractal->fractal.z.im += (scalar / 2) - ((double)y / scalar);
 	fractal->fractal.scale /= SCALE_PERC;
 	fractal->fractal.iteration -= SCALE_ITER;
 	ft_rgb_randomizer(fractal);

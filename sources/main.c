@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:39:04 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/09 20:17:54 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/10 15:54:34 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,15 @@ void	options_menu(void)
 
 void	ft_initialize(t_fractal *fractal)
 {
-	fractal->fractal.x_real = -2.0;
-	fractal->fractal.y_im = -1.30;
+	fractal->fractal.z.re = -2.0;
+	fractal->fractal.z.im = -1.30;
 	if (fractal->fractal.type == 1)
 	{
-		fractal->fractal.x_real = -2.5;
-		fractal->fractal.y_im = -1.30;
+		fractal->fractal.z.re = -2.5;
+		fractal->fractal.z.im = -1.30;
 	}
-	fractal->fractal.c_real = 0x0;
-	fractal->fractal.c_im = 0x0;
+	fractal->fractal.c.re = 0x0;
+	fractal->fractal.c.im = 0x0;
 	fractal->fractal.iteration = 50;
 	fractal->fractal.scale = 300.00;
 	fractal->color.red = 0x42;
@@ -96,22 +96,15 @@ void	_afplay(void)
 	afplay[0] = "/usr/bin/afplay";
 	afplay[1] = "/Users/ablaamim/Desktop/FRACTALS/sources/.sound/fourpointfour-110019.mp3";
 	afplay[2] = 0;
-
-
-	if ((pid = fork()) == 0)
-	{
+	pid = fork();
+	if (pid == 0)
 		execve(afplay[0], afplay, 0);
-	}
-	else
-		;
-	//system("afplay /Users/ablaamim/Desktop/FRACTALS/sources/.sound/fourpointfour-110019.mp3");
 }
 
 int	main(int argc, char **argv)
 {
 	t_fractal	fract;
 
-	_afplay();
 	//trippy_sound(&fract);
 	if (argc >= 2)
 	{
@@ -124,6 +117,7 @@ int	main(int argc, char **argv)
 				&fract.mlx.endian);
 		ft_initialize(&fract);
 		ft_draw(&fract);
+		_afplay();
 		mlx_key_hook(fract.mlx.win, key_hook, &fract);
 		mlx_mouse_hook(fract.mlx.win, mouse_hook, &fract);
 		mlx_loop(fract.mlx.mlx);

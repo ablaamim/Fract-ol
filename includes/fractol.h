@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:38:15 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/09 19:27:36 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/10 15:40:51 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define SCALE_ITER 3
 
 # define HEIGHT 720
-# define WIDTH 1280
+# define WIDTH 1200
 # define MSG "Welcome to fractol project !"
 
 # define ESC 53
@@ -45,18 +45,22 @@ typedef struct s_rgb
 	int	blue;
 }	t_rgb;
 
+typedef struct s_complexe
+{
+	double	im;
+	double	re;
+}	t_complexe;
+
 typedef struct s_infos
 {
-	int		depth;
-	int		type;
-	int		iteration;
-	double	h;
-	double	w;
-	double	scale;
-	double	x_real;
-	double	y_im;
-	double	c_real;
-	double	c_im;
+	int			depth;
+	int			type;
+	int			iteration;
+	double		h;
+	double		w;
+	t_complexe	c;
+	t_complexe	z;
+	double		scale;
 }	t_infos;
 
 typedef struct s_mlx
