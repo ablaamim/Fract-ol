@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:38:15 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/10 15:40:51 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/10 15:56:48 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,5 @@ void	ft_rgb_randomizer(t_fractal *fractal);
 int		mouse_hook(int hook, int x, int y, t_fractal *fractal);
 void	ft_zoom_in(int x, int y, t_fractal *fractal);
 void	ft_zoom_out(int x, int y, t_fractal *fractal);
-void	trippy_sound(t_fractal *fractal);
-void	_afplay(void);
+void	ft_afplay(void);
 #endif
