@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:38:15 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/10 15:56:48 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/10 17:37:04 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <mlx.h>
 # include <signal.h>
+# include <pthread.h>
 
 # define SCALE_LIMIT 800000
 # define SCALE_PERC 1.3
@@ -37,6 +38,8 @@
 
 # define SCROLL_UP 0x04
 # define SCROLL_DOWN 0x05
+
+# define DESTROY 17
 
 typedef struct s_rgb
 {
@@ -73,6 +76,7 @@ typedef struct s_mlx
 	int		endian;
 	void	*win;
 	int		color;
+	void	*param;
 }	t_mlx;
 
 typedef struct s_fractal
@@ -97,4 +101,6 @@ int		mouse_hook(int hook, int x, int y, t_fractal *fractal);
 void	ft_zoom_in(int x, int y, t_fractal *fractal);
 void	ft_zoom_out(int x, int y, t_fractal *fractal);
 void	ft_afplay(void);
+void		ft_quit(int pid);
+
 #endif

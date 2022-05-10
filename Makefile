@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/02 12:37:59 by ablaamim          #+#    #+#              #
-#    Updated: 2022/05/06 19:03:59 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/05/10 16:01:32 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC = ./sources/main.c \
 	  ./sources/hooks.c \
 	  ./sources/ft_mandelbrot_constructor.c \
 	  ./sources/libft_utils.c \
-	  ./sources/pixilization.c
+	  ./sources/pixilization.c \
+	  ./sources/ft_afplay.c
 
 OBJ = $(patsubst %.c,%.o,$(SRC))
 
