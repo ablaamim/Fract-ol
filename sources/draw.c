@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:38:57 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/10 15:41:18 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:28:20 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int	ft_draw(t_fractal *fractal)
 		{
 			if (fractal->fractal.type == 1)
 				depth = ft_mandelbrot_constructor(fractal);
+			if (fractal->fractal.type == 2)
+				depth = ft_julia(fractal);
+			if (fractal->fractal.type == 3)
+				depth = ft_rabbit(fractal);
 			ft_put_pixel(fractal, depth);
 			fractal->fractal.w += 1;
 		}

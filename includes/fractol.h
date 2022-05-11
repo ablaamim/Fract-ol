@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:38:15 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/10 17:37:04 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:31:41 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ typedef struct s_fractal
 int		main(int argc, char **argv);
 int		ft_strcmp(char *s1, char *s2);
 void	options_menu(void);
-void	ft_initialize(t_fractal *fractal);
+void	ft_initialize(t_fractal *fractal, char **argv);
 void	selector(t_fractal *fractal, char **argv);
 int		key_hook(int hook, t_fractal *fractal);
 int		ft_draw(t_fractal *f);
@@ -101,6 +101,8 @@ int		mouse_hook(int hook, int x, int y, t_fractal *fractal);
 void	ft_zoom_in(int x, int y, t_fractal *fractal);
 void	ft_zoom_out(int x, int y, t_fractal *fractal);
 void	ft_afplay(void);
-void		ft_quit(int pid);
-
+void	ft_quit(int pid);
+int		ft_julia(t_fractal *fractal);
+int		close_afplay(t_fractal *fractal);
+int		ft_rabbit(t_fractal *fractal);
 #endif

@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:39:04 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/10 17:49:38 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:27:26 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	selector(t_fractal *fractal, char **argv)
 		fractal->fractal.type = 1;
 	else if (!ft_strcmp(argv[1], "-julia"))
 		fractal->fractal.type = 2;
+	else if (!ft_strcmp(argv[1], "-rabbit"))
+		fractal->fractal.type = 3;
 	else
 	{
 		printf("\nERROR : Invalid argument\n\n");
@@ -68,12 +70,19 @@ void	options_menu(void)
 	printf("###########################################\n");
 }
 
-void	ft_initialize(t_fractal *fractal)
+void	ft_initialize(t_fractal *fractal, char **argv)
 {
 	fractal->fractal.z.re = -2.0;
 	fractal->fractal.z.im = -1.2;
 	fractal->fractal.c.re = 0x0;
 	fractal->fractal.c.im = 0x0;
+	if (argv[2])
+		fractal->fractal.iteration = atoi(argv[2]);
+	if (argv[3] && argv[4])
+	{
+		fractal->fractal.c.re = atof(argv[3]);
+		fractal->fractal.c.im = atof(argv[4]);
+	}
 	fractal->fractal.iteration = 50;
 	fractal->fractal.scale = 300.00;
 	fractal->color.red = 0x42;
@@ -81,14 +90,6 @@ void	ft_initialize(t_fractal *fractal)
 	fractal->color.blue = 0x22;
 	fractal->fractal.h = 0x0;
 	fractal->fractal.w = 0x0;
-}
-
-int	close_lol(t_fractal *fractal)
-{
-	printf("Good");
-	kill(fractal->pid, SIGPIPE);
-	exit(0);
-	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -104,12 +105,12 @@ int	main(int argc, char **argv)
 		fract.mlx.addr = mlx_get_data_addr(fract.mlx.img,
 				&fract.mlx.bits_per_pixel, &fract.mlx.line_length,
 				&fract.mlx.endian);
-		ft_initialize(&fract);
+		ft_initialize(&fract, argv);
 		ft_draw(&fract);
 		ft_afplay();
 		mlx_key_hook(fract.mlx.win, key_hook, &fract);
 		mlx_mouse_hook(fract.mlx.win, mouse_hook, &fract);
-		mlx_hook(fract.mlx.win, DESTROY, 0, close_lol, &fract);
+		mlx_hook(fract.mlx.win, DESTROY, 0, close_afplay, &fract);
 		mlx_loop(fract.mlx.mlx);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 10:33:45 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/05/10 15:50:03 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/05/11 15:56:12 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_mandelbrot_constructor(t_fractal *fractal)
 	zi = 0x0;
 	ci = fractal->fractal.w / fractal->fractal.scale + fractal->fractal.z.im;
 	cr = fractal->fractal.h / fractal->fractal.scale + fractal->fractal.z.re;
-	while (((zr * zr) + (zi * zi) <= 4) && (fractal->fractal.depth \
+	while (((zr * zr) + (zi * zi) < 4) && (fractal->fractal.depth \
 		< fractal->fractal.iteration))
 	{
 		tmp_zr = zr;
